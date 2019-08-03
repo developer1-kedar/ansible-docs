@@ -1,0 +1,86 @@
+Pre-requsite    
+ On all nodes of EC2 
+
+# adduser ansible
+
+# passwd ansible
+
+Now we will edit the permissions
+# vi /etc/sudoers
+
+ansible ALL=(ALL)       NOPASSWD: ALL
+
+#	vi /etc/ssh/sshd_config
+
+PasswordAuthentication yes
+
+#	service sshd restart
+
+
+
+On control server
+#	vi /etc/hosts
+
+172.31.26.193 controlserver.cloudenabled.com controlserver
+172.31.29.78 centos.cloudenabled.com  centos
+172.31.17.171 ubuntu.cloudenabled.com ubuntu
+
+
+#	vi /etc/hostname 
+
+controlserver
+
+#  hostname controlserver
+
+hostname -f 
+
+
+
+
+
+
+
+On  Centos node
+#	vi /etc/hosts
+
+172.31.26.193 controlserver.cloudenabled.com controlserver
+172.31.29.78 centos.cloudenabled.com  centos
+172.31.17.171 ubuntu.cloudenabled.com ubuntu
+
+#	vi /etc/hostname 
+
+centos
+
+#  hostname centos
+
+hostname -f 
+
+
+ping controlserver
+
+
+
+
+
+
+
+
+On  Ubuntu node
+#	vi /etc/hosts
+
+172.31.26.193 controlserver.cloudenabled.com controlserver
+172.31.29.78 centos.cloudenabled.com  centos
+172.31.17.171 ubuntu.cloudenabled.com ubuntu
+
+#	vi /etc/hostname 
+
+ubuntu
+
+#  hostname  ubuntu
+
+hostname -f 
+
+Ping other machines with hostname
+ping controlserver
+
+ping centos
